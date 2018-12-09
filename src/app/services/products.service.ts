@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFiretore} from '@angular/fire/firestore';
+import { AngularFirestore} from '@angular/fire/firestore';
 import { Product } from '../models/products';
 import { Observable } from 'rxjs';
 
@@ -9,8 +9,15 @@ import { Observable } from 'rxjs';
 export class ProductsService {
     
     productsCollection;
-	products: ;
+	products: Observable<Product[]>;
 	productsDoc;
 
-  constructor(db: AngularFiretore) { }
+  constructor(public db: AngularFirestore) { 
+   this.products= this.db.collection('products').valueChanges();
+  }
+
+  getProducts(){
+
+  	return this.products;
+  }
 }
