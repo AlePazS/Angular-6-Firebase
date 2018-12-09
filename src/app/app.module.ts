@@ -7,6 +7,7 @@ import { ProductsFormComponent } from './components/products-form/products-form.
 import { ProductsComponent } from './components/products/products.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
