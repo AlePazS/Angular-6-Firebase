@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
    updateProduct(){
       //console.log(this.editingProduct);
       this.productsService.updateProduct(this.editingProduct);
-      this.editingProduct={} as Product;
+      this.editingProduct={} as product;
       this.editing=false;
    }
 
