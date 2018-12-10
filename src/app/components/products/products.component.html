@@ -13,6 +13,11 @@
  <div  *ngIf="editing && editingProduct.id == product.id">
  		<form (ngSubmit)="updateProduct()">
 			<input type="text" name="name" [(ngModel)]="editingProduct.name">
+			<input type="text" name="description" [(ngModel)]="editingProduct.description">
+			<input type="text" name="price" [(ngModel)]="editingProduct.price">
+			<button type="submit">
+				Update
+			</button>
 		</form>
 	
  </div>

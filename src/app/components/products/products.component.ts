@@ -10,7 +10,7 @@ import { ProductsService } from '../../services/products.service';
 export class ProductsComponent implements OnInit {
 
 	products =[];
-  editingProduct: product;
+  editingProduct: products;
   editing:  boolean=false;
   constructor( public productsService: ProductsService ) { }
 
@@ -35,7 +35,10 @@ export class ProductsComponent implements OnInit {
    }
 
    updateProduct(){
-
+      //console.log(this.editingProduct);
+      this.productsService.updateProduct(this.editingProduct);
+      this.editingProduct={} as Product;
+      this.editing=false;
    }
 
 }
