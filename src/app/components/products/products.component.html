@@ -1,21 +1,32 @@
 <div *ngIf="products.length>0;else noproducts">
-	<ul>
-	<li *ngFor="let product of products">
-		{{product.name}}<br>
-		{{product.description}}<br>
-		{{product.price}}
-		<button (click)="deleteProduct($event,product)">
+	<ul class="list-group">
+	<li *ngFor="let product of products" class="list-group-item list-group-item-action">
+		<h5>{{product.name}}</h5>
+		<h3>{{product.price}}</h3>
+		<p>{{product.description}}</p>
+		
+		<button (click)="deleteProduct($event,product)" class="btn btn-danger">
 			Delete
 		</button>
-		<button (click)="editProduct($event,product)">
+
+		<button (click)="editProduct($event,product)" class="btn btn-secondary">
 		Edit
 	</button>
  <div  *ngIf="editing && editingProduct.id == product.id">
- 		<form (ngSubmit)="updateProduct()">
-			<input type="text" name="name" [(ngModel)]="editingProduct.name">
-			<input type="text" name="description" [(ngModel)]="editingProduct.description">
-			<input type="text" name="price" [(ngModel)]="editingProduct.price">
-			<button type="submit">
+ 		<form (ngSubmit)="updateProduct()" class="mt-4">
+ 			<div class="form-group">
+ 				<input type="text" name="name" [(ngModel)]="editingProduct.name" class="form-control">
+ 			</div>
+			
+			<div class="form-group">
+				<input type="text" name="description" [(ngModel)]="editingProduct.description" class="form-control">
+			</div>
+			
+			<div class="form-group">
+				<input type="text" name="price" [(ngModel)]="editingProduct.price"  class="form-control">
+			</div>
+			
+			<button type="submit" class="btn btn-success">
 				Update
 			</button>
 		</form>
