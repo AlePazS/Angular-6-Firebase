@@ -7,10 +7,16 @@
 		<button (click)="deleteProduct($event,product)">
 			Delete
 		</button>
-		<button>
+		<button (click)="editProduct($event,product)">
 		Edit
 	</button>
-	</li>
+ <div  *ngIf="editing && editingProduct.id == product.id">
+ 		<form (ngSubmit)="updateProduct()">
+			<input type="text" name="name" [(ngModel)]="editingProduct.name">
+		</form>
+	
+ </div>
+</li>
 		
 </ul>
 </div>

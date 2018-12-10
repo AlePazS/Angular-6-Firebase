@@ -10,7 +10,8 @@ import { ProductsService } from '../../services/products.service';
 export class ProductsComponent implements OnInit {
 
 	products =[];
-
+  editingProduct: product;
+  editing:  boolean=false;
   constructor( public productsService: ProductsService ) { }
 
   ngOnInit() {
@@ -24,6 +25,17 @@ export class ProductsComponent implements OnInit {
   deleteProduct(event,product){
   	this.productsService.deleteProduct(product);
   }
+   
 
+   editProduct(event,product){
+      //console.log(product);
+      this.editingProduct=product;
+      this.editing=!this.editing;
+
+   }
+
+   updateProduct(){
+
+   }
 
 }
